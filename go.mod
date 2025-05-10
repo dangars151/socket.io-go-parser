@@ -1,4 +1,4 @@
-module github.com/dangars151/socket.io-go-parser
+module github.com/dangars151/socket.io-go-parser/v2
 
 go 1.24.1
 
