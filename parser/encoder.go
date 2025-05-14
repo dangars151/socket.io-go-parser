@@ -24,7 +24,7 @@ func (e *encoder) Encode(packet *Packet) []types.BufferInterface {
 	if strings.Contains(msgLog, "NaN") {
 		parser_log.Info(msgLog)
 	}
-	parser_log.Debug("encoding packet %v", packet)
+	parser_log.Debug(msgLog)
 	if packet.Type == EVENT || packet.Type == ACK {
 		if HasBinary(packet.Data) {
 			if packet.Type == EVENT {
