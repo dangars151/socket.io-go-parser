@@ -21,7 +21,7 @@ func NewEncoder() Encoder {
 // buffer sequence, depending on packet type.
 func (e *encoder) Encode(packet *Packet) []types.BufferInterface {
 	msgLog := fmt.Sprintf("encoding packet %v", packet)
-	if strings.Contains(msgLog, "NaN") {
+	if strings.Contains(msgLog, "NaN") || strings.Contains(msgLog, "Infinity") {
 		parser_log.Info(msgLog)
 	}
 	parser_log.Debug(msgLog)
