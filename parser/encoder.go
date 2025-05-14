@@ -2,6 +2,7 @@ package parser
 
 import (
 	"encoding/json"
+	"fmt"
 	"strconv"
 	"strings"
 
@@ -19,6 +20,10 @@ func NewEncoder() Encoder {
 // Encode a packet as a single string if non-binary, or as a
 // buffer sequence, depending on packet type.
 func (e *encoder) Encode(packet *Packet) []types.BufferInterface {
+	msgLog := fmt.Sprintf("encoding packet %v", packet)
+	if strings.Contains(msgLog, "NaN") {
+		parser_log.Info(msgLog)
+	}
 	parser_log.Debug("encoding packet %v", packet)
 	if packet.Type == EVENT || packet.Type == ACK {
 		if HasBinary(packet.Data) {
